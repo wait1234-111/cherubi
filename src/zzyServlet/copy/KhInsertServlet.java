@@ -1,5 +1,4 @@
 package zzyServlet.copy;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,7 +26,6 @@ public class KhInsertServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -36,14 +34,13 @@ public class KhInsertServlet extends HttpServlet {
 	    PreparedStatement pstmt = null;
 		
 	    String xm = request.getParameter("xm");
-		String xh = request.getParameter("xh");
-		String xb   = request.getParameter("xb");
-		String xy  = request.getParameter("xy");
 		String szd  = request.getParameter("szd");
 		String jbqk= request.getParameter("jbqk");
 		String sbrq= request.getParameter("sbrq");
 		String lxfs   = request.getParameter("lxfs");
-		
+		String xh = request.getParameter("xh");
+		String xb   = request.getParameter("xb");
+		String xy  = request.getParameter("xy");
 		String sql = "insert into khxxdj(sqdbh,gzl,wtdw,slry,slzt,jylb,jymd,pjbz) values(?,?,?,?,?,?,?,?)";
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -59,7 +56,7 @@ public class KhInsertServlet extends HttpServlet {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("���ݿ�ִ��ʧ��!");
+			System.out.println("Êý¾Ý¿âÖ´ÐÐÊ§°Ü!");//转换格式下
 		}
 		
 		response.sendRedirect("zy/AfterInsert.html");
