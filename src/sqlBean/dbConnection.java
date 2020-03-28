@@ -11,39 +11,21 @@ public class dbConnection {
 	public static Connection getConn() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//1.²éÕÒmysqlµÄÇı¶¯³ÌĞò£¬½âÑ¹connectorºó»áÓĞcomÎÄ¼ş¼Ğ
+			//1.æŸ¥æ‰¾mysqlçš„é©±åŠ¨ç¨‹åºï¼Œè§£å‹connectoråä¼šæœ‰comæ–‡ä»¶å¤¹
 		} catch (Exception e) {
-			System.out.println("Çı¶¯³ÌĞò²»´æÔÚ£¡");
+			System.out.println("é©±åŠ¨ç¨‹åºä¸å­˜åœ¨ï¼");
 		}
 		try {
-			//2.¶¨ÒåÁ¬½ÓÊı¾İ¿âµÄ²ÎÊı
+			//2.å®šä¹‰è¿æ¥æ•°æ®åº“çš„å‚æ•°
 			String user = "root";
-			String password = "mysql";//Ã»ÓĞÉèÖÃÃÜÂëÎª¿Õ
-			String url = "jdbc:mysql://localhost:3306/zy?useUnicode=true&characterEncoding=utf-8";//kh_dbÎªÄãÒªÁ¬½ÓµÄÊı¾İ¿âµÄÃû³Æ
-			//3.½¨Á¢Á¬½Ó
-			con = DriverManager.getConnection(url, user, password);//Èı¸ö²ÎÊıË³ĞòÎª£ºÁ¬½ÓµÄµØÖ·£¬ÓÃ»§Ãû£¬ÃÜÂë
+			String password = "mysql";//æ²¡æœ‰è®¾ç½®å¯†ç ä¸ºç©º
+			String url = "jdbc:mysql://localhost:3306/zy?useUnicode=true&characterEncoding=utf-8";//kh_dbä¸ºä½ è¦è¿æ¥çš„æ•°æ®åº“çš„åç§°
+			//3.å»ºç«‹è¿æ¥
+			con = DriverManager.getConnection(url, user, password);//ä¸‰ä¸ªå‚æ•°é¡ºåºä¸ºï¼šè¿æ¥çš„åœ°å€ï¼Œç”¨æˆ·åï¼Œå¯†ç 
 		} catch (Exception e) {
-			System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü");
+			System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥");
 		}
 		return con;
 	
 	}
-//	public ResultSet Search(String sql, String str[]) {
-//		getConn();
-//		ResultSet rs = null;
-//		try {
-//			PreparedStatement pst = con.prepareStatement(sql);
-//			if (str != null) {
-//				for (int i = 0; i < str.length - 1; i++) {
-//					pst.setString(i + 1, str[i]);
-//				}
-//				pst.setInt(str.length, Integer.parseInt(str[str.length - 1]));
-//			}
-//			rs = pst.executeQuery();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return rs;
-//	}
-}
+
